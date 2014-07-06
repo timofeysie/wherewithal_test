@@ -1,0 +1,28 @@
+{
+  "object": {
+        "id": "http://en.wiktionary.org/wiki/cat",
+        "definition": {
+            "description": {
+                "en-US": "cat"
+            },
+            "type": "http://adlnet.gov/expapi/activities/assessment",
+            "interactionType": "fill-in",
+            "correctResponsesPattern": [
+                "고양이"
+            ] },
+        "object": {
+        	"objectType": "SubStatement",
+        	"actor" : {
+        	    "objectType": "Agent", 
+        	    "mbox":"mailto:test@example.com" 
+        	},
+        	"object": {
+            	"id":"http://ko.wiktionary.org/wiki/고양이",
+            	"definition": { 
+                	"name" : {
+                     	"ko-KR": "고양이"
+                	}
+            }
+        }
+    }
+}
