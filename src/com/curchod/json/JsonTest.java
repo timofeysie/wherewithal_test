@@ -10,6 +10,10 @@ import com.curchod.json.*;
 public class JsonTest extends TestCase 
 {
 
+	/**
+	 * This is testing iiiiiiiiii
+	 * 
+	 */
 	public void testVocabularyLearningObject() 
 	{
 		VocabularyLearningObject vlo = new VocabularyLearningObject();
@@ -17,15 +21,15 @@ public class JsonTest extends TestCase
 		try {
 			id = new URI("http://en.wiktionary.org/wiki/cat");
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
+			// What should the caller do if there is an error here?
 			e.printStackTrace();
 		}
 	    vlo.setId(id);
 	    vlo.setObjectType("Activity");
 	    VocabularyDefinition definition = new VocabularyDefinition();
-	    definition.setName("ko-KR", "°í¾çÀÌ");
+	    definition.setName("ko-KR", "ï¿½ï¿½ï¿½ï¿½ï¿½");
 	    definition.setDescription("Reading");
-	    definition.setType("http://ko.wiktionary.org/wiki/°í¾çÀÌ");
+	    definition.setType("http://ko.wiktionary.org/wiki/ï¿½ï¿½ï¿½ï¿½ï¿½");
 	    vlo.setDefintion(definition);
 	    String actual = vlo.toJSON();
 	    System.err.println(actual);
@@ -35,13 +39,14 @@ public class JsonTest extends TestCase
         buffer.append("\"id\": \"http://en.wiktionary.org/wiki/cat\",");
         buffer.append("\"objectType\": \"Activity\",");
         buffer.append("\"definition\": {");
-        buffer.append("\"name\": {\"ko-KR\": \"°í¾çÀÌ\"},");
+        buffer.append("\"name\": {\"ko-KR\": \"ï¿½ï¿½ï¿½ï¿½ï¿½\"},");
         buffer.append("\"description\": \"Reading\",");
-        buffer.append("\"type\": \"http://ko.wiktionary.org/wiki/°í¾çÀÌ\"");
+        buffer.append("\"type\": \"http://ko.wiktionary.org/wiki/ï¿½ï¿½ï¿½ï¿½ï¿½\"");
         buffer.append("}}");
-        String expected = buffer.toString();
-        System.err.println(actual);
-        
+        String temp = buffer.toString();
+        System.err.println("before: "+temp);
+        String expected = temp.replaceAll("[{}]","");
+        System.err.println("after: "+expected);
         assertEquals(expected,actual);
 	}
 	
